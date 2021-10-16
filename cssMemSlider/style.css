@@ -6,4 +6,66 @@
 
 :root {
   font-size: 10px;
+  --Orange: #D64937;
+  --Silver: #DCDCDC;
+  --Puter: #2D2D2D;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+section {
+  
+}
+
+#slider {
+
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1440px;
+  width: calc(100% - 40px);
+}
+
+.slider__slides {
+  display: flex;
+  overflow: hidden;
+}
+
+.slider__items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider__controls {
+  display: flex;
+  gap: 2.5rem;
+}
+
+input[type=radio] {
+  background-color: var(--Orange);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  cursor: pointer;
+  border: 3px solid var(--Orange);
+  transition: all ease 0.5s;
+}
+
+input[type=radio]:hover {
+  background-color: var(--Silver);
+  border: 3px solid var(--Silver);
+}
+
+input[type=radio]:checked {
+  background-color: transparent;
+}
+
+input[type=radio]:checked:hover {
+  border: 3px solid var(--Silver);
 }
