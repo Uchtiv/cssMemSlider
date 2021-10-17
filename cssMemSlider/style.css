@@ -59,10 +59,10 @@ input[type=radio] {
 }
 
 .slides__item1 { background-image: url(./assets/img/slide1.jpg); }
-.slides__item2 {  }
-.slides__item3 {  }
-.slides__item4 {  }
-.slides__item5 {  }
+.slides__item2 { background-image: url(./assets/img/slide2.jpg); }
+.slides__item3 { background-image: url(./assets/img/slide3.jpg); }
+.slides__item4 { background-image: url(./assets/img/slide4.jpg); }
+.slides__item5 { background-image: url(./assets/img/slide5.jpg); }
 
 .container {
   display: flex;
@@ -82,9 +82,11 @@ input[type=radio] {
   color: var(--Silver);
   text-align: justify;
   transition: all ease 0.1s;
+  text-transform: uppercase;
 }
 
 .text__item {
+  width: 100%;
 }
 
 .controls {
@@ -142,4 +144,20 @@ input[type=radio] {
 #slide4:checked ~ .container > .controls > label > .radio4,
 #slide5:checked ~ .container > .controls > label > .radio5 {
   background-color: transparent;
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .text__slider  {
+    order: 1;
+    width: 100%;
+  }
+
+  .controls {
+    margin-bottom: 40px;
+    justify-content: center;
+  }
 }
