@@ -12,7 +12,7 @@
 }
 
 img {
-  max-width: 100%;
+  #max-width: 100%;
   display: block;
 }
 
@@ -27,45 +27,120 @@ section {
 .wrapper {
   margin: 0 auto;
   max-width: 1440px;
-  width: calc(100% - 40px);
+  width: calc(100% - 4rem);
+  padding: 4rem 0 4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  overflow: hidden;
 }
 
 .slider__slides {
   display: flex;
   overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  width: 507%;
+  gap: 20px;
+  background-image: linear-gradient(120deg, #1B1B32, #D64937);
+}
+
+.slides__item {
+  height: 50rem;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.slides__item1 { background-image: url(./assets/img/slide1.jpg); }
+.slides__item2 {  }
+.slides__item3 {  }
+.slides__item4 {  }
+.slides__item5 {  }
+
+
+#slide1:checked ~ .slider__slides {
+  transform: translateX(40%);
+}
+
+#slide2:checked ~ .slider__slides {
+  transform: translateX(20%);
+}
+
+#slide3:checked ~ .slider__slides {
+  transform: translateX(0);
+}
+
+#slide4:checked ~ .slider__slides {
+  transform: translateX(-20%);
+}
+
+#slide5:checked ~ .slider__slides {
+  transform: translateX(-40%);
 }
 
 .slider__items {
   display: flex;
   justify-content: space-between;
+  width: 100%;
+}
+
+.slider__text {
+  font-size: 1.6rem;
+}
+
+.text__item {
 }
 
 .slider__controls {
   display: flex;
-  gap: 2.5rem;
+  gap: 2rem;
+  align-items: flex-start;
 }
 
-input[type=radio] {
+.controls__item {
+  #width: 4rem;
+  #height: 4rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.controls__item:last-child {
+  padding-right: 0;
+}
+
+.controls__item:hover > .radio {
+  background-color: var(--Silver);
+  border: 0.3rem solid var(--Silver);
+}
+
+
+.controls__item:active > .radio {
+  border: 0.3rem solid blue;
+}
+
+.radio {
   background-color: var(--Orange);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   width: 1.6rem;
   height: 1.6rem;
   cursor: pointer;
-  border: 3px solid var(--Orange);
+  border: 0.3rem solid var(--Orange);
   transition: all ease 0.5s;
 }
 
-input[type=radio]:hover {
-  background-color: var(--Silver);
-  border: 3px solid var(--Silver);
-}
-
-input[type=radio]:checked {
+#slide1:checked ~ .slider__items > .slider__controls > label > .radio1,
+#slide2:checked ~ .slider__items > .slider__controls > label > .radio2,
+#slide3:checked ~ .slider__items > .slider__controls > label > .radio3,
+#slide4:checked ~ .slider__items > .slider__controls > label > .radio4,
+#slide5:checked ~ .slider__items > .slider__controls > label > .radio5 {
   background-color: transparent;
 }
 
-input[type=radio]:checked:hover {
-  border: 3px solid var(--Silver);
+input[type=radio] {
+  display: none;
 }
