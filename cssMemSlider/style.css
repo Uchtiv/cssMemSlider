@@ -8,7 +8,9 @@
   font-size: 10px;
   --Orange: #D64937;
   --Silver: #DCDCDC;
+  --Blue-Dark: #1B1B32;
   --Puter: #2D2D2D;
+  background-color: var(--Puter);
 }
 
 img {
@@ -17,11 +19,11 @@ img {
 }
 
 section {
-  
+  background-color: var(--Puter);
 }
 
-#slider {
-
+input[type=radio] {
+  display: none;
 }
 
 .wrapper {
@@ -36,14 +38,16 @@ section {
   overflow: hidden;
 }
 
-.slider__slides {
-  display: flex;
+.slider {
   overflow: hidden;
-  justify-content: center;
-  align-items: center;
-  width: 507%;
-  gap: 20px;
-  background-image: linear-gradient(120deg, #1B1B32, #D64937);
+  background-image: linear-gradient(120deg, var(--Blue-Dark), var(--Orange));
+  width: 100%;
+}
+
+.slides {
+  display: flex;
+  width: 500%;
+  transition: all ease 0.5s;
 }
 
 .slides__item {
@@ -60,49 +64,36 @@ section {
 .slides__item4 {  }
 .slides__item5 {  }
 
-
-#slide1:checked ~ .slider__slides {
-  transform: translateX(40%);
-}
-
-#slide2:checked ~ .slider__slides {
-  transform: translateX(20%);
-}
-
-#slide3:checked ~ .slider__slides {
-  transform: translateX(0);
-}
-
-#slide4:checked ~ .slider__slides {
-  transform: translateX(-20%);
-}
-
-#slide5:checked ~ .slider__slides {
-  transform: translateX(-40%);
-}
-
-.slider__items {
+.container {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-.slider__text {
+.text__slider {
+  width: 40%;
+  overflow: hidden;
+}
+
+.text__slides {
+  display: flex;
+  width: 500%;
   font-size: 1.6rem;
+  color: var(--Silver);
+  text-align: justify;
+  transition: all ease 0.1s;
 }
 
 .text__item {
 }
 
-.slider__controls {
+.controls {
   display: flex;
   gap: 2rem;
   align-items: flex-start;
 }
 
 .controls__item {
-  #width: 4rem;
-  #height: 4rem;
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -119,9 +110,9 @@ section {
   border: 0.3rem solid var(--Silver);
 }
 
-
 .controls__item:active > .radio {
-  border: 0.3rem solid blue;
+  border: 0.3rem solid var(--Blue-Dark);
+  background-color: transparent;
 }
 
 .radio {
@@ -133,14 +124,22 @@ section {
   transition: all ease 0.5s;
 }
 
-#slide1:checked ~ .slider__items > .slider__controls > label > .radio1,
-#slide2:checked ~ .slider__items > .slider__controls > label > .radio2,
-#slide3:checked ~ .slider__items > .slider__controls > label > .radio3,
-#slide4:checked ~ .slider__items > .slider__controls > label > .radio4,
-#slide5:checked ~ .slider__items > .slider__controls > label > .radio5 {
-  background-color: transparent;
-}
+#slide1:checked ~ .slider > .slides { transform: translateX(0); }
+#slide2:checked ~ .slider > .slides { transform: translateX(-20%); }
+#slide3:checked ~ .slider > .slides { transform: translateX(-40%); }
+#slide4:checked ~ .slider > .slides { transform: translateX(-60%); }
+#slide5:checked ~ .slider > .slides { transform: translateX(-80%); }
 
-input[type=radio] {
-  display: none;
+#slide1:checked ~ .container .text__slider > .text__slides { transform: translateX(0); }
+#slide2:checked ~ .container .text__slider > .text__slides { transform: translateX(-20%); }
+#slide3:checked ~ .container .text__slider > .text__slides { transform: translateX(-40%); }
+#slide4:checked ~ .container .text__slider > .text__slides { transform: translateX(-60%); }
+#slide5:checked ~ .container .text__slider > .text__slides { transform: translateX(-80%); }
+
+#slide1:checked ~ .container > .controls > label > .radio1,
+#slide2:checked ~ .container > .controls > label > .radio2,
+#slide3:checked ~ .container > .controls > label > .radio3,
+#slide4:checked ~ .container > .controls > label > .radio4,
+#slide5:checked ~ .container > .controls > label > .radio5 {
+  background-color: transparent;
 }
